@@ -1,6 +1,4 @@
-# Speech-to-Text-App-in-Javascript-Using-Web-Speech-Recognition-API-Javascript-Project
-
-# Stepper-motor-using-Arduino-UNO-R3-
+# Speech-to-Text-App-in-Javascript-Using-Web-Speech-Recognition-API
 
 
 
