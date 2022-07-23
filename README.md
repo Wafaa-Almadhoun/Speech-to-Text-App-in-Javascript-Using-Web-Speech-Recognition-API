@@ -23,23 +23,23 @@ Project is created with:
 
 ### HTML
 
-<!DOCTYPE html>
+     <!DOCTYPE html>
 
-<html lang="ar">
+     <html lang="ar">
 
-<head>
+     <head>
 
-<meta charset="utf-8">
+     <meta charset="utf-8">
 
-<meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=1">
+     <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=1">
 
-<title>Home</title>
+     <title>Home</title>
 
-<link rel="stylesheet" type="text/css" href="style.css">
+     <link rel="stylesheet" type="text/css" href="style.css">
 
-</head>
+     </head>
 
-<body>
+     <body>
 
 	<div class="voice_to_text"> 
 	
@@ -49,22 +49,22 @@ Project is created with:
 	
     <button id="click_to_record">اضغط للبدأ</button>
     
-  </div>
+    </div>
 
 
 
-<script type="text/javascript" src="script.js"></script>
+     <script type="text/javascript" src="script.js"></script>
 
-</body>
+   </body>
 
-</html>
+   </html>
 
 
    
     
 ### CSS
 
-*,*:after,*:before{
+      *,*:after,*:before{
 
 	-webkit-box-sizing: border-box;
 	
@@ -74,8 +74,8 @@ Project is created with:
 	
 	box-sizing: border-box;
 	
-}
-body{
+    }
+    body{
 	font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
 	
 	font-size: 16px;
@@ -89,25 +89,25 @@ body{
 	
 	display: flex;
 
-  align-items: center;
+      align-items: center;
   
-  justify-content: center;
+       justify-content: center;
   
-  min-height: 100vh;
+        min-height: 100vh;
   
-}
+    }
 
-.voice_to_text{
+     .voice_to_text{
 
-  width: 600px;
+     width: 600px;
   
-  text-align: center;
+     text-align: center;
   
-  letter-spacing: initial;
+     letter-spacing: initial;
   
-}
+   }
 
-h1{
+   h1{
 
 	color: #fff;
 	
@@ -115,46 +115,46 @@ h1{
 	
     letter-spacing: initial;
     
-}
-#convert_text{
+  }
+   #convert_text{
 
-  text-align: right;  
+    text-align: right;  
   
-  width: 100%;
+    width: 100%;
   
-  height: 200px;
+    height: 200px;
   
-  border-radius: 10px;
+    border-radius: 10px;
   
-  resize: none;
+    resize: none;
   
-  padding: 10px;
+    padding: 10px;
   
-  font-size: 20px;
+    font-size: 20px;
   
-  margin-bottom: 10px;
+    margin-bottom: 10px;
   
-  letter-spacing: initial;
+    letter-spacing: initial;
   
-}
+   }
 
-button{
+   button{
 
-	padding: 12px 20px;
-	
-  background: #000304;
+     	padding: 12px 20px;
+    	
+    background: #000304;
   
-  border: 0;
+     border: 0;
   
-  color: #fff;
+     color: #fff;
   
-  font-size: 18px;
+     font-size: 18px;
   
-  cursor: pointer;
+    cursor: pointer;
   
-  border-radius: 5px;
+    border-radius: 5px;
   
-}
+   }
 
 
   
@@ -195,7 +195,7 @@ button{
     
     }
     
-})
+    })
 
 ![Capture](https://user-images.githubusercontent.com/64277741/180607258-9e2c643d-a29e-48a7-b0a1-475ab01ad6b9.PNG)
 Figure (1): The result 
