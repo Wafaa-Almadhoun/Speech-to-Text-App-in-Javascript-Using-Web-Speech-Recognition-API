@@ -11,38 +11,94 @@
 
 
 ## Introduction
-Stepper motors are an ideal choice for accurately moving and positioning mechanical devices. Using techniques like microstepping the position of the motor shaft can be controlled with a great deal of precision, stepper Motors are used in a wide variety of devices ranging from 3D printers and CNC machines to DVD drives, heating ducts, and even analog clocks , stepper motors are DC motors that rotate in precise increments or “steps”.
 
-  ,We will cover several topics : 👍 
-
-
- 1. Unipolar Stepper with ULN2003.
- 2. Bipolar Stepper with L293D Motor Driver IC.
- 3. BIG Stepper Motors NEMA 23 Bipolar with DM860A Microstep Driver . 
   
 
 
 ## Technologies
 Project is created with:
-* Arduino IDE 1.8.19 [To Downloud](https://www.arduino.cc/en/software)
-* Proteus [To Downloud](https://www.labcenter.com/simulation/)
+* Visual studio code  [To Downloud](https://code.visualstudio.com/)
 	
-## Components required
-### 1. Unipolar Stepper with ULN2003 
-    1. Arduino UNO
-    2. 1 – 28BYJ-48 Unipolar Stepper
-    3. jumper wirs
-    4. driver board ULN2003
-    5. bettrey  5 and 12 volt 
-    6. breadboard
+## The codes
+
+### HTML
+
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=1">
+<title>Home</title>
+<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+
+	<div class="voice_to_text"> 
+		<h1>محول الصوت الى نص</h1>
+        <textarea name="" id="convert_text"></textarea>
+    <button id="click_to_record">اضغط للبدأ</button>
+  </div>
+
+
+
+<script type="text/javascript" src="script.js"></script>
+</body>
+</html>
+
+
+   
     
-### 2. Bipolar Stepper with L293D Motor Driver IC
-    1. Arduino UNO
-    2. 1  NEMA 17 bipolar stepper
-    3. jumper wirs
-    4. L293D Motor Driver IC
-    5. bettrey  5 and 12 volt 
-    6. breadboard
+### CSS
+*,*:after,*:before{
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	-ms-box-sizing: border-box;
+	box-sizing: border-box;
+}
+body{
+	font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+	font-size: 16px;
+	margin: 0;
+	background:linear-gradient(to right bottom, #3cffe5, #031f6a);
+	color: #000;
+	
+	display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+}
+
+.voice_to_text{
+  width: 600px;
+  text-align: center;
+  letter-spacing: initial;
+}
+h1{
+	color: #fff;
+	font-size: 50px;
+    letter-spacing: initial;
+}
+#convert_text{
+  text-align: right;  
+  width: 100%;
+  height: 200px;
+  border-radius: 10px;
+  resize: none;
+  padding: 10px;
+  font-size: 20px;
+  margin-bottom: 10px;
+  letter-spacing: initial;
+}
+button{
+	padding: 12px 20px;
+  background: #000304;
+  border: 0;
+  color: #fff;
+  font-size: 18px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
     
 ### 3. BIG Stepper Motors NEMA 23 Bipolar with DM860A Microstep Driver .
     1. Arduino UNO
@@ -54,238 +110,34 @@ Project is created with:
     7. push button 
     8. 10 k ohm
     9. potentiometer
+  
+
+### JavaScript
+
+    click_to_record.addEventListener('click',function(){
+    var speech = true;
+    window.SpeechRecognition = window.webkitSpeechRecognition;
+
+    const recognition = new SpeechRecognition();
+    recognition.lang = 'ar';
+    recognition.interimResults = true;
+
+    recognition.addEventListener('result', e => {
+        const transcript = Array.from(e.results)
+            .map(result => result[0])
+            .map(result => result.transcript)
+            .join('')
+
+        document.getElementById("convert_text").innerHTML = transcript;
+        console.log(transcript);
+    });
     
-## Connections
-
-### 1. Unipolar Stepper with ULN2003
-
-     connecting ULN2003 pin1 to pin 8 in Ardunio
-     connecting ULN2003 pin2 to pin 9 in Ardunio
-     connecting ULN2003 pin3 to pin 10 in Ardunio
-     connecting ULN2003 pin4 to pin 11 in Ardunio
-     connecting ULN2003 pin16 to pin1 in stepper
-     connecting ULN2003 pin15 to pin2 in stepper
-     connecting ULN2003 pin14 to pin3 in stepper
-     connecting ULN2003 pin13 to pin4 in stepper
-     connecting ULN2003 pin9 and the 2 2VDD pin in stepper motor to 12v battery 
-     Connect ground to ground
-     
- ### 2. Bipolar Stepper with L293D Motor Driver IC
- 
-    connecting 5V output on Arduino to the Vcc2 & Vcc1 pins
+    if (speech == true) {
+        recognition.start();
     
-    Connect ground to ground.
+    }
     
-    connect the input pins(IN1, IN2, IN3 and IN4) of the L293D IC to 
-    
-    four digital output pins(12, 11, 10 and 9) on Arduino
-    0ne coil of stepper moter connecting to Out1 & Out2 and the anthor coil connecting to Out3 & Out4
-    
- 
- ### 3. BIG Stepper Motors NEMA 23 Bipolar with DM860A Microstep Driver 
- 
-     connecting pin6 in Ardunio to -DIR in DM860A 
-     connecting pin7 in Ardunio to -PUL in DM860A
-     connecting +5v output in Ardunio to +PUL & +DIR in DM860A
-     connecting pin2 in Ardunio to one side of push button and also the 10 K ohm resistor connection up to the +5v on the arduino 
-     connecting GND in Ardunio to the other side of push button
-     connecting GND in Ardunio to the one side of potentiometer
-     connecting +5v in Ardunio to the other side of potentiometer
-     connecting pin A0 in Ardunio to the signal of potentiometer
-     connecting the motor driver with 24v battery
-     connecting the pin A+ driver with A+ in DM860A
-     connecting the pin A- driver with A- in DM860A
-     connecting the pin B+ driver with B+ in DM860A
-     connecting the pin B- driver with B- in DM860A
+})
 
-     
-## Block diagram & simulation
-### 1. Unipolar Stepper with ULN2003 . [see here](https://github.com/Wafaa-Almadhoun/Stepper-motor-using-Arduino-UNO-R3-/blob/main/stepper%20using%20ULN2003.pdsprj)
-##### Slow - 4-step CW sequence to observe lights on driver board
-![1](https://user-images.githubusercontent.com/64277741/179306291-f9684758-deaf-4828-9520-757a142ba537.PNG)
-Figure (1): Stepper Motor at 90 degree after 1-step CW sequence
-![2](https://user-images.githubusercontent.com/64277741/179307189-82e1089f-4cbb-403a-b78c-a4c990c24522.PNG)
-Figure (2): Stepper Motor at 180 degree after 2-step CW sequence
-![3](https://user-images.githubusercontent.com/64277741/179307421-bbcf698d-139f-4d30-aae9-9546c057fb68.PNG)
-Figure (3): Stepper Motor at 270 degree after 3-step CW sequence
-![4](https://user-images.githubusercontent.com/64277741/179307644-0f9d39bf-591d-45a1-b9c4-d38ec8528d7d.PNG)
-Figure (4): Stepper Motor at 342 degree after 4-step CW sequence
-##### Rotate CW 1/2 turn slowly
-![5](https://user-images.githubusercontent.com/64277741/179308867-85dbccdc-5070-4164-82c7-9776d4b09fc9.PNG)
-Figure (5): Rotate CW 1/2 turn slowly
-##### Rotate CCW 1/2 turn quickly
-![6](https://user-images.githubusercontent.com/64277741/179309329-1eed85e5-3f0d-48a3-b2be-3d9a40e71869.PNG)
-Figure (6): Rotate CCW 1/2 turn quickly
-
-#### The Code 
- Demonstrates 28BYJ-48 Unipolar Stepper with ULN2003 Driver
- 
-  Uses Arduino Stepper Library
- 
-//Include the Arduino Stepper Library
-
-#include <Stepper.h>
- 
-// Define Constants
- 
-// Number of steps per internal motor revolution 
-
-const float STEPS_PER_REV = 32; 
- 
-//  Amount of Gear Reduction
-
-const float GEAR_RED = 64;
- 
-// Number of steps per geared output rotation
-
-const float STEPS_PER_OUT_REV = STEPS_PER_REV * GEAR_RED;
- 
-// Define Variables
- 
-// Number of Steps Required
-
-int StepsRequired;
- 
-// Create Instance of Stepper Class
-
-// Specify Pins used for motor coils
-
-// The pins used are 8,9,10,11 
-
-// Connected to ULN2003 Motor Driver In1, In2, In3, In4 
-
-// Pins entered in sequence 1-3-2-4 for proper step sequencing
- 
-Stepper steppermotor(STEPS_PER_REV, 8, 10, 9, 11);
- 
-void setup()
-{
-
-// Nothing  (Stepper Library sets pins as outputs)
-
-}
- 
-void loop()
-{
-
-  // Slow - 4-step CW sequence to observe lights on driver board
-  
-  steppermotor.setSpeed(1);    
-  
-  StepsRequired  =  4;
-  
-  steppermotor.step(StepsRequired);
-  
-  delay(2000);
- 
-   // Rotate CW 1/2 turn slowly
-   
-  StepsRequired  =  STEPS_PER_OUT_REV / 2; 
-  
-  steppermotor.setSpeed(100);   
-  
-  steppermotor.step(StepsRequired);
-  
-  delay(1000);
-  
-  // Rotate CCW 1/2 turn quickly
-  
-  StepsRequired  =  - STEPS_PER_OUT_REV / 2;   
-  
-  steppermotor.setSpeed(700);  
-  
-  steppermotor.step(StepsRequired);
-  
-  delay(2000);
- 
-}
-
-### 2. Bipolar Stepper with L293D Motor Driver IC .[see here ](https://github.com/Wafaa-Almadhoun/Stepper-motor-using-Arduino-UNO-R3-/blob/main/Bipolar%20Stepper%20with%20L293D%20Motor%20Driver%20IC.pdsprj)
-![1](https://user-images.githubusercontent.com/64277741/179328636-268173e6-09b8-46fb-9431-1dfe2eae640f.PNG)
-Figure (7): step one revolution in the other direction ("counterclockwise")
-
- ![2](https://user-images.githubusercontent.com/64277741/179328701-3dee3532-ada8-4ae9-abdd-f15dcee8762f.PNG)
-Figure (8): step one revolution in one direction ("clockwise")
-
-#### The code 
-
-// Include the Arduino Stepper Library
-#include <Stepper.h>
-
-// Number of steps per output rotation NEMA 17
-
-const int stepsPerRevolution = 200; 
-
-// Create Instance of Stepper library
-
-Stepper myStepper(stepsPerRevolution, 12, 11, 10, 9);
-
-
-void setup()
-{
-  // set the speed at 20 rpm:
-  
-  myStepper.setSpeed(20);
-  
-}
-
-void loop() 
-{
-  // step one revolution in one direction:
-  
-  myStepper.step(stepsPerRevolution);
-  
-  delay(1000);
-
-  // step one revolution in the other direction:
-  
-  myStepper.step(-stepsPerRevolution);
-  
-  delay(1000);
-}
-
-
-### 3. BIG Stepper Motors NEMA 23 Bipolar with DM860A Microstep Driver  
-![3BIG Stepper Motors NEMA 23 Bipolar with DM860A Microstep Driver](https://user-images.githubusercontent.com/64277741/179338072-d89222ff-f4ea-4005-a69e-4427b546f48d.png)
-
-#### The Code 
-// Defin pins
- 
-int reverseSwitch = 2;  // Push button for reverse
-int driverPUL = 7;    // PUL- pin
-int driverDIR = 6;    // DIR- pin
-int spd = A0;     // Potentiometer
- 
-// Variables
- 
-int pd = 500;       // Pulse Delay period
-boolean setdir = LOW; // Set Direction
- 
-// Interrupt Handler
- 
-void revmotor (){
- 
-  setdir = !setdir;
-  
-}
- 
- 
-void setup() {
- 
-  pinMode (driverPUL, OUTPUT);
-  pinMode (driverDIR, OUTPUT);
-  attachInterrupt(digitalPinToInterrupt(reverseSwitch), revmotor, FALLING);
-  
-}
- 
-void loop() {
-  
-    pd = map((analogRead(spd)),0,1023,2000,50);
-    digitalWrite(driverDIR,setdir);
-    digitalWrite(driverPUL,HIGH);
-    delayMicroseconds(pd);
-    digitalWrite(driverPUL,LOW);
-    delayMicroseconds(pd);
- 
-}
-
+![Capture](https://user-images.githubusercontent.com/64277741/180607258-9e2c643d-a29e-48a7-b0a1-475ab01ad6b9.PNG)
+figur (1):
