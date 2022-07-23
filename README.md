@@ -12,7 +12,7 @@
 
 ## Introduction
 
-  
+ we will clear how to create voice to text converter. by create speech to text converter using HTML CSS and JavaScript
 
 
 ## Technologies
@@ -99,36 +99,37 @@ button{
   border-radius: 5px;
 }
 
-    
-### 3. BIG Stepper Motors NEMA 23 Bipolar with DM860A Microstep Driver .
-    1. Arduino UNO
-    2. 1  NEMA 23 bipolar stepper
-    3. jumper wirs
-    4. DM860A Microstep Driver
-    5. bettrey 24 volt 
-    6. breadboard
-    7. push button 
-    8. 10 k ohm
-    9. potentiometer
+
   
 
 ### JavaScript
 
     click_to_record.addEventListener('click',function(){
+    
     var speech = true;
+    
     window.SpeechRecognition = window.webkitSpeechRecognition;
+    
 
     const recognition = new SpeechRecognition();
+    
     recognition.lang = 'ar';
+    
     recognition.interimResults = true;
+    
 
     recognition.addEventListener('result', e => {
+    
         const transcript = Array.from(e.results)
+	
             .map(result => result[0])
+	    
             .map(result => result.transcript)
+	    
             .join('')
 
         document.getElementById("convert_text").innerHTML = transcript;
+	
         console.log(transcript);
     });
     
@@ -140,4 +141,4 @@ button{
 })
 
 ![Capture](https://user-images.githubusercontent.com/64277741/180607258-9e2c643d-a29e-48a7-b0a1-475ab01ad6b9.PNG)
-figur (1):
+Figure (1): The result 
