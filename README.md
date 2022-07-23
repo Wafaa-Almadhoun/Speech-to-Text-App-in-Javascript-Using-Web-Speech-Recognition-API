@@ -74,8 +74,8 @@ Project is created with:
 	
 	box-sizing: border-box;
 	
-    }
-    body{
+      }
+      body{
 	font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
 	
 	font-size: 16px;
@@ -95,7 +95,7 @@ Project is created with:
   
         min-height: 100vh;
   
-    }
+       }
 
      .voice_to_text{
 
@@ -105,9 +105,9 @@ Project is created with:
   
      letter-spacing: initial;
   
-   }
+     }
 
-   h1{
+     h1{
 
 	color: #fff;
 	
@@ -115,8 +115,8 @@ Project is created with:
 	
     letter-spacing: initial;
     
-  }
-   #convert_text{
+    }
+     #convert_text{
 
     text-align: right;  
   
@@ -136,13 +136,13 @@ Project is created with:
   
     letter-spacing: initial;
   
-   }
+     }
 
-   button{
+     button{
 
      	padding: 12px 20px;
     	
-    background: #000304;
+      background: #000304;
   
      border: 0;
   
@@ -154,7 +154,7 @@ Project is created with:
   
     border-radius: 5px;
   
-   }
+     }
 
 
   
